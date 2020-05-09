@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "/eoKfnHApGjrg7D/BQymcSUZD64Fwh7p7mONLNH7b4usA1WOxSZb7Xi6g6kLrTAP27BvtSwfQvoVZBzZIhqLBg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\corey\\Desktop\\TravelingSalesman\\TravelingSalesman\\TravelingSalesman.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\corey\\.nuget\\packages\\googlemaps.locationservices\\1.2.0.5\\googlemaps.locationservices.1.2.0.5.nupkg.sha512"
+  ],
+  "logs": []
+}

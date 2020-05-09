@@ -1,0 +1,15 @@
+C:\Users\corey\Desktop\TravelingSalesman\TravelingSalesman\bin\Debug\netcoreapp3.1\TravelingSalesman.exe
+C:\Users\corey\Desktop\TravelingSalesman\TravelingSalesman\obj\Debug\netcoreapp3.1\TravelingSalesman.csprojAssemblyReference.cache
+C:\Users\corey\Desktop\TravelingSalesman\TravelingSalesman\obj\Debug\netcoreapp3.1\TravelingSalesman.AssemblyInfoInputs.cache
+C:\Users\corey\Desktop\TravelingSalesman\TravelingSalesman\obj\Debug\netcoreapp3.1\TravelingSalesman.AssemblyInfo.cs
+C:\Users\corey\Desktop\TravelingSalesman\TravelingSalesman\bin\Debug\netcoreapp3.1\TravelingSalesman.deps.json
+C:\Users\corey\Desktop\TravelingSalesman\TravelingSalesman\bin\Debug\netcoreapp3.1\TravelingSalesman.runtimeconfig.json
+C:\Users\corey\Desktop\TravelingSalesman\TravelingSalesman\bin\Debug\netcoreapp3.1\TravelingSalesman.runtimeconfig.dev.json
+C:\Users\corey\Desktop\TravelingSalesman\TravelingSalesman\bin\Debug\netcoreapp3.1\TravelingSalesman.dll
+C:\Users\corey\Desktop\TravelingSalesman\TravelingSalesman\bin\Debug\netcoreapp3.1\TravelingSalesman.pdb
+C:\Users\corey\Desktop\TravelingSalesman\TravelingSalesman\bin\Debug\netcoreapp3.1\GoogleMaps.LocationServices.dll
+C:\Users\corey\Desktop\TravelingSalesman\TravelingSalesman\obj\Debug\netcoreapp3.1\TravelingSalesman.csproj.CoreCompileInputs.cache
+C:\Users\corey\Desktop\TravelingSalesman\TravelingSalesman\obj\Debug\netcoreapp3.1\TravelingSalesman.csproj.CopyComplete
+C:\Users\corey\Desktop\TravelingSalesman\TravelingSalesman\obj\Debug\netcoreapp3.1\TravelingSalesman.dll
+C:\Users\corey\Desktop\TravelingSalesman\TravelingSalesman\obj\Debug\netcoreapp3.1\TravelingSalesman.pdb
+C:\Users\corey\Desktop\TravelingSalesman\TravelingSalesman\obj\Debug\netcoreapp3.1\TravelingSalesman.genruntimeconfig.cache
