@@ -4,25 +4,27 @@ using System.Collections.Generic;
 using System.Text;
 using System.Data;
 using System.Drawing;
+using System.Collections;
 
 namespace TravelingSalesman
 {
     class TravelingSalesmanApp
     {
+        private const int NUM_CITIES = 5;
         static void Main(string[] args)
         {
-            //Bitmap bitmap = Bitmap.FromFIle()
-            TSPImplementation tsp = new TSPImplementation();
-            var Greenville = "Greenville, SC";
-            var Spartanburg = "Spartanburg, SC";
+            List<Position> trip = new List<Position>();
             var location = new GoogleLocationService("AIzaSyBcbePFUz2za7X3CgVF_-QGJIxLb_IYLa8");
-            var greenville = location.GetLatLongFromAddress(Greenville);
-            var spartanburg = location.GetLatLongFromAddress(Spartanburg);
-            Console.WriteLine($" {Greenville}: {greenville.Latitude} , {greenville.Longitude}");
-            Console.WriteLine($"{Spartanburg}: {spartanburg.Latitude} , {spartanburg.Longitude}");
-            Position pos1 = new Position(greenville.Latitude, greenville.Longitude, Greenville);
-            Position pos2 = new Position(spartanburg.Latitude, spartanburg.Longitude, Spartanburg);
-            Console.WriteLine($"Distance between cities: {tsp.HaversineDistance(pos1, pos2)}");
+            for (int i = 0; i < NUM_CITIES; i++)
+            {
+                var cityName = Console.ReadLine();
+                var cityData = location.GetLatLongFromAddress(cityName);
+                Position pos = new Position(cityData.Latitude, cityData.Longitude, cityName);
+                trip.Add(pos);
+            }
+            TSPImplementation tsp  = new TSPImplementation (trip);
+            tsp.ComputeTrip();
+            Console.WriteLine(tsp.ToString());
         }
     }
 }
