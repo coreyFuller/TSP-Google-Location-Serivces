@@ -10,14 +10,27 @@ namespace TravelingSalesman
     {
         private List<Position> trip;
         private double tripMiles;
-        private double localDistance;
+        private double bestDistance;
         private static Random rng = new Random();
+        private double[ , ] distanceMatrix; 
         public TSPImplementation(List<Position> Trip)
         {
             trip = new List<Position>();
             trip = Trip.ToList();
             tripMiles = 0;
-            localDistance = 200000;
+            bestDistance = 200000;
+            distanceMatrix = new double[trip.Count, trip.Count];
+        }
+        
+        public void fillMatrix()
+        {
+            for(int i = 0; i < trip.Count; i++)
+            {
+                for(int j = 0; j < trip.Count; j++)
+                {
+                    distanceMatrix[i, j] = Math.Round(HaversineDistance(trip[i], trip[j]), 4, MidpointRounding.AwayFromZero); 
+                }
+            }
         }
 
         public void swap(List<Position> list, int first, int second)
@@ -36,56 +49,71 @@ namespace TravelingSalesman
             }
         }
 
-        public double ComputeTrip()
+        public void printTour(List<Position> tour)
         {
-            localDistance = 200000;
+            foreach (var city in tour) Console.WriteLine(city.ToString());
+            Console.WriteLine();
+        }
+
+        public void ComputeTrip()
+        {
+            bestDistance = 200000;
             double tempDistance;
             List<Position> localOptimumTrip = new List<Position>();
             List<Position> randomTrip = new List<Position>();
 
             localOptimumTrip = trip;
-   
-            for (int i = 0; i < 1000; i++)
+
+            for (int i = 0; i < 5; i++)
             {
-                localDistance = 200000;
+                bestDistance = 200000;
                 randomTrip.Clear();
                 //generate random tour
-                while (check(trip))
+                randomTrip = new List<Position>(trip);
+                randomShuffle(randomTrip);
+                while (check(randomTrip))
                 {
-                    /*
-                    for (int i = 0; i < trip.Count; i++)
+                    for (int j = 0; j < trip.Count; j++)
                     {
-                        for (int j = 0; j < trip.Count; j++)
+                        for (int k = 0; k < trip.Count; k++)
                         {
-                            //check tour distance
-                            //reverse random trip
-                            
-
+                            tempDistance = calculateTripDistance(randomTrip);
+                            swap(randomTrip, j, trip.Count - k - 1);
+                            if (calculateTripDistance(randomTrip) < tempDistance)
+                                //localOptimumTrip = randomTrip;
+                                localOptimumTrip = new List<Position>(randomTrip);
+                            else
+                                swap(randomTrip, j, trip.Count - k - 1);
                         }
                     }
-                    */
+                }
+                if (calculateTripDistance(localOptimumTrip) < calculateTripDistance(trip))
+                {
+                    //trip = localOptimumTrip;
+                    trip = new List<Position>(localOptimumTrip);
+                    tripMiles = calculateTripDistance(trip);
                 }
             }
-            return caluclateTripDistance();
         }
-        
+      
         public bool check(List<Position> list)
         {
-            double dist = caluclateTripDistance();
-            if(dist < localDistance)
+            double dist = calculateTripDistance(list);
+            if(dist < bestDistance)
             {
-                localDistance = dist;
+                bestDistance = dist;
+                //tripMiles = bestDistance;
                 return true;
             }
             return false;
         }
-        public double caluclateTripDistance()
+        public double calculateTripDistance(List<Position> list)
         {
             double distance = 0;
-            for (int i = 0; i < trip.Count - 1; i++) distance += HaversineDistance(trip[i], trip[i + 1]);
-            tripMiles = distance;
+            for (int i = 0; i < list.Count - 1; i++) distance += distanceMatrix[list[i].Order, list[i + 1].Order];
             return distance;
         }
+
         public double HaversineDistance(Position pos1, Position pos2)
         {
             double R = 3960;
@@ -106,9 +134,16 @@ namespace TravelingSalesman
         public override string ToString()
         {
             string s = "";
-            foreach(var city in trip) s += city.ToString();
+            int i = 1;
+            double hours = Math.Round(tripMiles/60, 0);
+            double minutes = Math.Round((tripMiles / 60 - Math.Floor(tripMiles / 60)) * 60, 0);
+            foreach (var city in trip)
+            {
+                s += i + ". " + city.ToString() + "\n";
+                i++;
+            }
             s += "\n";
-            s += "Distance of the trip: " + tripMiles + " mi";
+            s += "\tTotal Route: " + hours + " hr " + minutes + " min - " + tripMiles + " miles\n";
             return s;
         }
     }

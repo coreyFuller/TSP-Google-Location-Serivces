@@ -14,6 +14,7 @@ namespace TravelingSalesman
         static void Main(string[] args)
         {
             List<Position> trip = new List<Position>();
+           
             var location = new GoogleLocationService("AIzaSyBcbePFUz2za7X3CgVF_-QGJIxLb_IYLa8");
             for (int i = 0; i < NUM_CITIES; i++)
             {
@@ -22,7 +23,9 @@ namespace TravelingSalesman
                 Position pos = new Position(cityData.Latitude, cityData.Longitude, cityName);
                 trip.Add(pos);
             }
+
             TSPImplementation tsp  = new TSPImplementation (trip);
+            tsp.fillMatrix();
             tsp.ComputeTrip();
             Console.WriteLine(tsp.ToString());
         }
