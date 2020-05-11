@@ -10,7 +10,7 @@ namespace TravelingSalesman
 {
     class TravelingSalesmanApp
     {
-        private const int NUM_CITIES = 5;
+        private const int NUM_CITIES = 10;
         static void Main(string[] args)
         {
             List<Position> trip = new List<Position>();
