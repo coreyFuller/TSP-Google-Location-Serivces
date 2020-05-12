@@ -49,12 +49,6 @@ namespace TravelingSalesman
             }
         }
 
-        public void printTour(List<Position> tour)
-        {
-            foreach (var city in tour) Console.WriteLine(city.ToString());
-            Console.WriteLine();
-        }
-
         public void ComputeTrip()
         {
             bestDistance = 200000;
@@ -110,7 +104,8 @@ namespace TravelingSalesman
         public double calculateTripDistance(List<Position> list)
         {
             double distance = 0;
-            for (int i = 0; i < list.Count - 1; i++) distance += distanceMatrix[list[i].Order, list[i + 1].Order];
+            for (int i = 0; i < list.Count - 1; i++)
+                distance += distanceMatrix[list[i].Order, list[i + 1].Order];
             return distance;
         }
 
