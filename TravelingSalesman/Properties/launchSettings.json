@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "TravelingSalesman": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "Key": "Value"
+      }
+    }
+  }
+}
