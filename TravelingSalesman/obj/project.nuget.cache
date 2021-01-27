@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "/eoKfnHApGjrg7D/BQymcSUZD64Fwh7p7mONLNH7b4usA1WOxSZb7Xi6g6kLrTAP27BvtSwfQvoVZBzZIhqLBg==",
+  "dgSpecHash": "2J6iNIZkdKoH1RfvvzpCeTI6EJgHMNsm7YiIgda7KbIcZLjDAXkt3LBzIQ8qpeZ9OeGmiZIuf3uIJK/h4I1yXA==",
   "success": true,
   "projectFilePath": "C:\\Users\\corey\\Desktop\\TravelingSalesman\\TravelingSalesman\\TravelingSalesman.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\corey\\.nuget\\packages\\googlemaps.locationservices\\1.2.0.5\\googlemaps.locationservices.1.2.0.5.nupkg.sha512"
+    "C:\\Users\\corey\\.nuget\\packages\\googlemaps.locationservices\\1.2.0.5\\googlemaps.locationservices.1.2.0.5.nupkg.sha512",
+    "C:\\Users\\corey\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\corey\\.nuget\\packages\\xamarin.forms\\4.7.0.968\\xamarin.forms.4.7.0.968.nupkg.sha512"
   ],
   "logs": []
 }

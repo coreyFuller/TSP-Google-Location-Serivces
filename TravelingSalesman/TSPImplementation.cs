@@ -21,6 +21,11 @@ namespace TravelingSalesman
             bestDistance = 200000;
             distanceMatrix = new double[trip.Count, trip.Count];
         }
+
+        string PrintToUser(string s)
+        {
+            return s;
+        }
         
         public void fillMatrix()
         {
@@ -58,8 +63,13 @@ namespace TravelingSalesman
 
             localOptimumTrip = trip;
 
-            for (int i = 0; i < 500; i++)
+            for (int i = 0; i < 1000; i++)
             {
+                if (i % 25 == 0)
+                {
+                    Console.Write(".");
+                    Console.Beep();
+                }
                 bestDistance = 200000;
                 randomTrip.Clear();
                 //generate random tour
@@ -74,7 +84,6 @@ namespace TravelingSalesman
                             tempDistance = calculateTripDistance(randomTrip);
                             swap(randomTrip, j, trip.Count - k - 1);
                             if (calculateTripDistance(randomTrip) < tempDistance)
-                                //localOptimumTrip = randomTrip;
                                 localOptimumTrip = new List<Position>(randomTrip);
                             else
                                 swap(randomTrip, j, trip.Count - k - 1);
@@ -83,7 +92,6 @@ namespace TravelingSalesman
                 }
                 if (calculateTripDistance(localOptimumTrip) < calculateTripDistance(trip))
                 {
-                    //trip = localOptimumTrip;
                     trip = new List<Position>(localOptimumTrip);
                     tripMiles = calculateTripDistance(trip);
                 }
